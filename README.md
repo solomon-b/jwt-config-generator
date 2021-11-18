@@ -17,28 +17,11 @@ will overwrite the defaults.
 ```
 ➜ ./bin/jwt-config --private-key ./examples/privatekey.pem --config-fields ./examples/config-fields.json
 {
-  type: 'RS256',
-  key: [String: '-----BEGIN RSA PUBLIC KEY-----\n' +
-    'MIICCgKCAgEA6IAaQxyeEfMR9l9kxNI2rtHa7EEct7BqWFTnSZvBrhpbMyOTJ4oi\n' +
-    'qBYEFTulDT1s9Irn+Ub0jWFq3RuFvDvoYY1PFApOGohvXiitTRsUI+3pPofP727D\n' +
-    'MZGszAHSug+mK6wKnXLxnuEJ1rFjRXESwZUAZGR2doQX3X9xwX+PTkR9djnNuUSG\n' +
-    'TOz63jdOJiR7HM/qcJOyMKKskl33auYYi0ZOdxatCM53uVPbHrjyswlOeY+8fJ/Q\n' +
-    'BaKb34dcZKydIlUj85JBJYxbUPGSwgV710ywKI6ywDqC0AErGTgVbvoJ/YzvjED2\n' +
-    '3Yr8jg8WAQKeDsJOgTf//D+XiYiKiRvgbwfBq+6hhtiKi3pA5XooKuxbicfvORWL\n' +
-    'NDeEtEJp4fKGc1Pdb33lG4gAcwHs1Q6ari+4WkvpnoEvLXXr42LIBk0SBTnHBfy1\n' +
-    '3llByFwBZ2VtXEC2FfD3ZZ2acUJV30RS6T2YDIUFBTED/M2V/2TV/VvaqxIv6dCX\n' +
-    'ce1Zin9/cDfutGNi9VNZzUP+Em1KteNjaIk/hClmLOCapifIN1i5q0qy7lX8NNp5\n' +
-    '6XLnNU7S/U5tCssINWDCmIX6YNAI2IVqNaQkZxSNCFJDDf4nhWFt9YqNJOqOmRC7\n' +
-    '4PWyqDioggEDvMlMEjjoQGXAKGRWRstY7ppdH8fDiXo/1eng+kGCOV0CAwEAAQ==\n' +
-    '-----END RSA PUBLIC KEY-----\n'],
-  issuer: 'solomon'
+    "type": "RS256",
+    "key": "-----BEGIN RSA PUBLIC KEY-----\nMIICCgKCAgEA6IAaQxyeEfMR9l9kxNI2rtHa7EEct7BqWFTnSZvBrhpbMyOTJ4oi\nqBYEFTulDT1s9Irn+Ub0jWFq3RuFvDvoYY1PFApOGohvXiitTRsUI+3pPofP727D\nMZGszAHSug+mK6wKnXLxnuEJ1rFjRXESwZUAZGR2doQX3X9xwX+PTkR9djnNuUSG\nTOz63jdOJiR7HM/qcJOyMKKskl33auYYi0ZOdxatCM53uVPbHrjyswlOeY+8fJ/Q\nBaKb34dcZKydIlUj85JBJYxbUPGSwgV710ywKI6ywDqC0AErGTgVbvoJ/YzvjED2\n3Yr8jg8WAQKeDsJOgTf//D+XiYiKiRvgbwfBq+6hhtiKi3pA5XooKuxbicfvORWL\nNDeEtEJp4fKGc1Pdb33lG4gAcwHs1Q6ari+4WkvpnoEvLXXr42LIBk0SBTnHBfy1\n3llByFwBZ2VtXEC2FfD3ZZ2acUJV30RS6T2YDIUFBTED/M2V/2TV/VvaqxIv6dCX\nce1Zin9/cDfutGNi9VNZzUP+Em1KteNjaIk/hClmLOCapifIN1i5q0qy7lX8NNp5\n6XLnNU7S/U5tCssINWDCmIX6YNAI2IVqNaQkZxSNCFJDDf4nhWFt9YqNJOqOmRC7\n4PWyqDioggEDvMlMEjjoQGXAKGRWRstY7ppdH8fDiXo/1eng+kGCOV0CAwEAAQ==\n-----END RSA PUBLIC KEY-----\n",
+    "issuer": "solomon"
 }
 ```
-
-NOTE: As you can see, the key in this JWTConfig is broken. I don't
-understand why Node isn't full evaluating those string concatenations
-before logging the output. For the moment you have to manually correct
-the public key. :(
 
 ## Generating a Signed Token
 

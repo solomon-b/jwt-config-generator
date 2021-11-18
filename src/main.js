@@ -59,8 +59,7 @@ const createToken = (privateKey, payload, algorithm) => {
 const createConfig = (publicKey, algorithm, configFields) => {
     const baseConfig = {
         "type": algorithm,
-	// TODO: Figure out why this string isn't evaluating completely
-        "key": eval(new String(publicKey))
+        "key": publicKey
     }
 
     if (configFields) {
@@ -83,7 +82,9 @@ const main = () => {
 	const configFields = configFieldsPath ? JSON.parse(fs.readFileSync(configFieldsPath)) : {}
 	
 	const publicKey = crypto.createPublicKey(privateKey).export({type:'pkcs1', format:'pem'})
-	console.log(createConfig(publicKey, algorithm, configFields))
+	const jwtConfig = createConfig(publicKey, algorithm, configFields)
+
+	process.stdout.write(JSON.stringify(jwtConfig, null, 4))
 	process.exit(0)
     }
 
