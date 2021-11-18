@@ -1,0 +1,8 @@
+{
+    "https://hasura.io/jwt/claims": {
+	"x-hasura-allowed-roles": ["admin"],
+	"x-hasura-default-role": "admin",
+	"x-hasura-user-id": "0234567890",
+	"x-hasura-org-id": "124"
+    }
+}
