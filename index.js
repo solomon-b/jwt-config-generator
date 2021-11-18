@@ -9,12 +9,23 @@ const parseArgs = (args) => {
 
     if ('--help' in argObj) {
 	const privateKey = "--private-key    String. The path to the SSL private key."
-	const algorithm = "--algorithm Optional String. The signing algorithm for tokens. Default is 'RS256'."
-	const token = "--token Optional Boolean. Generate a signed token instead of a JWTConfig Object. Default is 'false'"
-	const payload = "--payload    String. The path to the payload json. Only required whengenerating a signd token."
-	const configFields = "--config-fields Optional String. Path to a JSON Object with additional metadata to include in a JWTCOnfig"
+	const algorithm = "--algorithm      Optional String. The signing algorithm for tokens. Default is 'RS256'."
+	const token = "--token          Optional Boolean. Generate a signed token instead of a JWTConfig Object. Default is 'false'"
+	const payload = "--payload        String. The path to the json file containing a payload for signd tokens."
+	const configFields = "--config-fields  Optional String. Path to a JSON Object with additional metadata to include in a JWTCOnfig"
 
-	const help = R.reduce((a, b) => a + "\n" + b, "", [privateKey, algorithm, token, payload, configFields])
+	const help = R.reduce((a, b) => a + "\n" + b, "", [
+	    "USAGE:",
+	    "npm run start -- --private-key ./examples/privatekey.pem --config-fields ./examples/config-fields.json",
+	    "npm run start -- --private-key ./examples/privatekey.pem --payload ./examples/payload.json --token true",
+	    "",
+	    "OPTIONS:",
+	    privateKey,
+	    algorithm,
+	    token,
+	    payload,
+	    configFields
+	])
 	console.log(help)
 
 	process.exit(0)
@@ -25,11 +36,6 @@ const parseArgs = (args) => {
 
     if (!('--private-key' in argObj)) {
     	console.log("Missing flag --private-key.")
-	process.exit(0)
-    }
-
-    if (!('--payload' in argObj) && argObj['--token']) {
-    	console.log("--payload is required when generating a signed token.")
 	process.exit(0)
     }
 
@@ -81,7 +87,7 @@ const main = () => {
     }
 
     const payloadPath = args['--payload']
-    const payload = JSON.parse(fs.readFileSync(payloadPath, 'utf8'))
+    const payload = payloadPath ? JSON.parse(fs.readFileSync(payloadPath, 'utf8')) : {}
 
     console.log(createToken(privateKey, payload, algorithm))
 }
