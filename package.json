@@ -10,17 +10,11 @@
   },
   "main": "index.js",
   "dependencies": {
-    "ejs": "^3.1.5",
     "jsonwebtoken": "^8.5.1",
     "ramda": "^0.27.1"
   },
-  "devDependencies": {
-    "got": "^11.3.0",
-    "tape": "^4.7.0"
-  },
   "keywords": [
     "node",
-    "express",
     "jwt",
     "hasura"
   ]

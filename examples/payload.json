@@ -1,4 +1,5 @@
 {
+    "iss": "solomon",
     "https://hasura.io/jwt/claims": {
 	"x-hasura-allowed-roles": ["admin"],
 	"x-hasura-default-role": "admin",
