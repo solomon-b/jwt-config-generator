@@ -1,7 +1,7 @@
 {
-  "name": "hasura-jwt-config-generator",
+  "name": "jwt-config",
   "version": "0.1.0",
-  "description": "A small script for generating signed JWT Tokens and JWTConfig Objects for Hasura. ",
+  "description": "A small script for generating signed JWT Tokens and JWTConfig Objects for Hasura.",
   "engines": {
     "node": "14.x"
   },
